@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour {
 
-
+	public static bool optionsAreVisable = false;
+	public GameObject optionsUI;
+	//public static bool 
 		//loadscene
 	public void PlayGame()
 	{
@@ -16,9 +18,33 @@ public class MainMenuController : MonoBehaviour {
 	{
 		Application.Quit();
 	}
+	//play credits
 	public void Credits()
 	{
 		SceneManager.LoadScene("Credits_SW");
 	}
-	public void OpenOptions(){}
+	//are options active or not?
+	public void OpenOptions()
+	{
+		if(optionsAreVisable)
+		{
+			Close();
+		}
+		else
+		{
+			Visable();
+		}
+	}
+	//Set objectto inactive or deactive
+	void Close(){
+		optionsUI.SetActive (false);
+		optionsAreVisable = false;
+	}
+	void Visable(){
+		optionsUI.SetActive (true);
+		optionsAreVisable = true;
+	}
+
+	
+	
 }	
