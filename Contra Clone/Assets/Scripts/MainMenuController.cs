@@ -7,7 +7,10 @@ public class MainMenuController : MonoBehaviour {
 
 	public static bool optionsAreVisable = false;
 	public GameObject optionsUI;
-	//public static bool 
+	public static bool optionIsVisable = false;
+	public static bool helpIsVisable = false;
+	public GameObject option;
+	public GameObject help;
 		//loadscene
 	public void PlayGame()
 	{
@@ -44,7 +47,57 @@ public class MainMenuController : MonoBehaviour {
 		optionsUI.SetActive (true);
 		optionsAreVisable = true;
 	}
-
+	public void Options()
+	{
+		if(optionIsVisable)
+		{
+			OptionClose();
+		}
+		else
+		{
+			OptionVisable();
+		}
+	}
 	
+	public void OptionClose()
+	{
+		option.SetActive (false);
+		optionIsVisable = (false);
+		help.SetActive (false);
+		helpIsVisable = (false);
+	}
 	
+	public void OptionVisable()
+	{
+		option.SetActive (true);
+		optionIsVisable = (true);
+		help.SetActive (false);
+		helpIsVisable = (false);
+	}
+	
+	public void Help()
+	{
+		if(helpIsVisable)
+		{
+			HelpClose();
+		}
+		else
+		{
+			HelpVisable();
+		}
+	}
+	public void HelpClose()
+	{
+		option.SetActive (false);
+		optionIsVisable = (false);
+		help.SetActive (false);
+		helpIsVisable = (false);
+	}
+	public void HelpVisable()
+	{
+		option.SetActive (false);
+		optionIsVisable = (false);
+		help.SetActive (true);
+		helpIsVisable = (true);		
+	}
 }	
