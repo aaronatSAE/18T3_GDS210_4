@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -252,7 +252,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4003f21cfe5dbf942bde2626a74ab760, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 323438596}
   - component: {fileID: 323438595}
   - component: {fileID: 323438594}
+  - component: {fileID: 323438598}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -317,7 +318,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 323438593}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -377,6 +378,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &323438598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 323438593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d60473c1f91df545bb6ffbdd0710d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPosition: {fileID: 965262907}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +478,7 @@ GameObject:
   - component: {fileID: 943298761}
   - component: {fileID: 943298760}
   - component: {fileID: 943298759}
+  - component: {fileID: 943298763}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -479,7 +493,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 943298758}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -539,6 +553,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &943298763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 943298758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d60473c1f91df545bb6ffbdd0710d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPosition: {fileID: 1972104606}
 --- !u!1 &965262907
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,6 +594,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1522441011366426, guid: 748b63d61d392624c8159d0ca23a7b39, type: 2}
   location: {fileID: 965262907}
+  mEnemyCount: 0
+  spawnTimer: 3
+  mEnemyArray: []
 --- !u!4 &965262909
 Transform:
   m_ObjectHideFlags: 0
@@ -575,7 +604,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 965262907}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 22, y: 1.107, z: 0}
+  m_LocalPosition: {x: 21.03, y: 1.107, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -823,6 +852,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1522441011366426, guid: 748b63d61d392624c8159d0ca23a7b39, type: 2}
   location: {fileID: 1972104606}
+  mEnemyCount: 0
+  spawnTimer: 3
+  mEnemyArray: []
 --- !u!4 &1972104608
 Transform:
   m_ObjectHideFlags: 0
@@ -830,7 +862,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1972104606}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -22, y: 1.107, z: 0}
+  m_LocalPosition: {x: -21.34, y: 1.107, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
