@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -21,5 +21,7 @@ public class EnemyMovement : MonoBehaviour
         transform.position += transform.forward * Time.deltaTime * speed;
 
     }
+
+   
 
 }
