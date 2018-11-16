@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - JumpTrig
+  - Platform
+  - Bar
   layers:
   - Default
   - TransparentFX
