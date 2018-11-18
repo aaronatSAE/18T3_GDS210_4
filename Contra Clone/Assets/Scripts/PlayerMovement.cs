@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour {
     public float airSpeed = 1.0f;
     public float climbSpeed = 1.0f;
     private float deltaX;
-    private bool grounded = false;
-    private bool onBar = false;
+    public bool grounded = false;
+    public bool onBar = false;
     
 
 	// Use this for initialization
@@ -60,11 +60,7 @@ public class PlayerMovement : MonoBehaviour {
         if(other.gameObject.tag == "Platform")
         {
             grounded = true;
-        }
-        else if(other.gameObject.tag == "Bar")
-        {
-            onBar = true;
-        }
+        }        
     }
 
     private void OnCollisionExit(Collision other)
@@ -72,11 +68,7 @@ public class PlayerMovement : MonoBehaviour {
         if (other.gameObject.tag == "Platform")
         {
             grounded = false;
-        }
-        else if (other.gameObject.tag == "Bar")
-        {
-            onBar = false;
-        }
+        }        
     }
 }
 

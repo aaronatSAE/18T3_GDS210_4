@@ -7,7 +7,9 @@ public class PlayerJump : MonoBehaviour {
     
     public Rigidbody playerRB;
     private Vector3 playerVelocity;    
-    public float jumpSpeed = 1.0f;
+    public float groundJumpSpeed = 1.0f;
+    public float barJumpSpeed = 1.0f;
+
 
 	// Use this for initialization
 	void Start ()
@@ -18,11 +20,20 @@ public class PlayerJump : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if(Input.GetButton("Jump") == true)
-        {            
-            playerVelocity = playerRB.velocity;
-            playerVelocity.y = jumpSpeed;
-            playerRB.velocity = playerVelocity;
+		if(Input.GetButtonDown("Jump") == true)
+        {
+            if(GetComponent<PlayerMovement>().grounded == true)
+            {
+                playerVelocity = playerRB.velocity;
+                playerVelocity.y = groundJumpSpeed;
+                playerRB.velocity = playerVelocity;
+            }
+            else if (GetComponent<PlayerMovement>().onBar == true)
+            {
+                playerVelocity = playerRB.velocity;
+                playerVelocity.y = barJumpSpeed;
+                playerRB.velocity = playerVelocity;
+            }
         }
 
         //Debug.Log(Input.GetButtonDown("Jump") + ": " + playerRB.velocity);
