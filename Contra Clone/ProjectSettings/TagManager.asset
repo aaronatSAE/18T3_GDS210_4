@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - JumpTrig
+  - Platform
+  - Bar
+  - pBullet
+  - eBullet
+  - Destroyable
   layers:
   - Default
   - TransparentFX
@@ -14,11 +21,11 @@ TagManager:
   - 
   - 
   - PostProcessing
+  - Melee Enemy
+  - pbullet
+  - ebullet
   - 
-  - 
-  - 
-  - 
-  - 
+  - Player
   - 
   - 
   - 
