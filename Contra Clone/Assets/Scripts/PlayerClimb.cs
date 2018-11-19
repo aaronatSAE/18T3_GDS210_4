@@ -32,7 +32,7 @@ public class PlayerClimb : MonoBehaviour {
         }
     }
 
-    private void private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Bar")
         {
