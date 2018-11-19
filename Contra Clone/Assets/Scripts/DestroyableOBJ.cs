@@ -16,6 +16,20 @@ public class DestroyableOBJ : MonoBehaviour {
 	void Update () {
         
 	}
-    
-    
+
+    public void OnTriggerEnter(Collider other)
+    {
+        //if (other.CompareTag("pBullet"))
+        //{
+        //    if (invulnerable == false)
+        //    {
+        //        int bulletdamage = other.gameObject.GetComponent<BulletDamage>().damage;
+        //        enemyLives -= bulletdamage;
+        //        if(enemyLives >= 0)
+        //        {
+        //            Destroy(gameObject);
+        //        }
+        //    }
+        //}
+    }
 }
