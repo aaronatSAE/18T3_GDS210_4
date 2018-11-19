@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114035166868049804}
   m_Layer: 10
   m_Name: pBullet
-  m_TagString: Untagged
+  m_TagString: pBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  checker: 0
 --- !u!114 &114392884483518492
 MonoBehaviour:
   m_ObjectHideFlags: 1

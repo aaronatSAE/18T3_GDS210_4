@@ -17,7 +17,7 @@ public class EnemyJump : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hit");
+        //Debug.Log("hit");
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<Rigidbody>().AddForce(transform.up * speed);

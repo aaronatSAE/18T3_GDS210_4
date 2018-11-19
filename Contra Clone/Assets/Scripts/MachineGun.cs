@@ -24,9 +24,9 @@ public class MachineGun : MonoBehaviour
 	}
 
 
-	 //When the object collides with anything it'll destroy itself
-	void OnCollisionEnter(Collision collider) 
-	{
+    //When the object collides with anything it'll destroy itself
+    public void OnTriggerEnter(Collider other)
+    {
 		//Destroys the gameobject
 		Destroy (gameObject);
 	}
