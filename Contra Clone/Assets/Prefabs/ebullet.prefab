@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114221971954593010}
   m_Layer: 11
   m_Name: ebullet
-  m_TagString: Untagged
+  m_TagString: eBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,8 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803e28f08459c904791c870e6f92570c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magnitude: 3000
-  lifeLine: 0.5
+  magnitude: 1000
+  lifeLine: 3
 --- !u!135 &135945654007340088
 SphereCollider:
   m_ObjectHideFlags: 1

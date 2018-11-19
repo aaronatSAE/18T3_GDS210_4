@@ -8,6 +8,9 @@ TagManager:
   - JumpTrig
   - Platform
   - Bar
+  - pBullet
+  - eBullet
+  - Destroyable
   layers:
   - Default
   - TransparentFX

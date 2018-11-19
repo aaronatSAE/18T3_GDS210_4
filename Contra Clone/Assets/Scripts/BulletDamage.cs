@@ -18,8 +18,13 @@ public class BulletDamage : MonoBehaviour {
 	}
     public void OnTriggerEnter(Collider other)
     {
-        other.gameObject.GetComponent<EnemyHealth>().enemyLives -= damage;
-        Destroy(gameObject);
+        if (other.CompareTag("Enemy"))
+        {
+            other.gameObject.GetComponent<EnemyHealth>().enemyLives -= damage;
+            Destroy(gameObject);
+
+        }
+        
         
     }
   
