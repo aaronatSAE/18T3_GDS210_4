@@ -17,11 +17,7 @@ public class BossMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        timeTurn -= Time.deltaTime;
-        if (timeTurn < 0)
-        {
-            Movement();
-        }
+       
     }
 
     public void DecisionMaker()
