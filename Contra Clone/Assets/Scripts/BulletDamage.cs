@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletDamage : MonoBehaviour {
 
     public int damage = 1;
+    public bool checker;
 
 	// Use this for initialization
 	void Start () {
