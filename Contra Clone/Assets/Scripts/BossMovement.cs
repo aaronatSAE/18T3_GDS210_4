@@ -24,70 +24,77 @@ public class BossMovement : MonoBehaviour {
         }
     }
 
-    public void Movement()
+    public void DecisionMaker()
     {       
         int rand = Random.Range(0, 2);
         if(rand == 0)
         {
             if(pos == 1)
             {
-                Attack1();
+                StartCoroutine("CoAttack1");
             }
             if (pos == 2)
             {
-                Attack2();
+                StartCoroutine("CoAttack2");
+                
             }
             if (pos == 3)
             {
-                Attack3();
+                StartCoroutine("CoAttack3");
             }
         }
-
-        if(rand == 1)
+        else
         {
-            int rand2 = Random.Range(0, 3);
-            if(rand2 == 0)
-            {
-                transform.position = currentLocations[1].transform.position;
-                pos = 2;
-                Movement();
-            }
-
-            if (rand2 == 1)
-            {
-                transform.position = currentLocations[2].transform.position;
-                pos = 3;
-                Movement();
-            }
-
-            if (rand2 == 2)
-            {
-                transform.position = currentLocations[0].transform.position;
-                pos = 1;
-                Movement();
-            }
+            Movement(); 
         }
 
     }
 
 
-    
+    public void Movement()
+    {
+        int rand2 = Random.Range(0, 3);
+        if (rand2 == 0)
+        {
+            transform.position = currentLocations[1].transform.position;
+            pos = 2;
+            DecisionMaker();
+        }
 
-    public void Attack1()
+        if (rand2 == 1)
+        {
+            transform.position = currentLocations[2].transform.position;
+            pos = 3;
+            DecisionMaker();
+        }
+
+        if (rand2 == 2)
+        {
+            transform.position = currentLocations[0].transform.position;
+            pos = 1;
+            DecisionMaker();
+        }
+    }
+
+    public IEnumerator CoAttack1()
     {
         Debug.Log("Attack 1 Occurs");
-        Movement();
+        yield return new WaitForSeconds(2f);
+        DecisionMaker();
     }
 
-    public void Attack2()
+    public IEnumerator CoAttack2()
     {
         Debug.Log("Attack 2 Occurs");
-        Movement();
+        yield return new WaitForSeconds(2f);
+        DecisionMaker();
     }
 
-    public void Attack3()
+    public IEnumerator CoAttack3()
     {
         Debug.Log("Attack 3 Occurs");
-        Movement();
+        yield return new WaitForSeconds(2f);
+        DecisionMaker();
     }
+
 }

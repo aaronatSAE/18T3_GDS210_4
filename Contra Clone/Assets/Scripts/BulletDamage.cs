@@ -15,4 +15,12 @@ public class BulletDamage : MonoBehaviour {
 	void Update () {
 		
 	}
+    public void OnTriggerEnter(Collider other)
+    {
+        other.gameObject.GetComponent<EnemyHealth>().enemyLives -= damage;
+        Destroy(gameObject);
+        
+    }
+  
+    
 }

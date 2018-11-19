@@ -790,7 +790,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1522441011366426, guid: 748b63d61d392624c8159d0ca23a7b39, type: 2}
   location: {fileID: 965262907}
-  mEnemyCount: 0
   spawnTimer: 3
   mEnemyArray: []
 --- !u!4 &965262909
@@ -885,7 +884,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 997267499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.11, y: -2.08, z: 36.76}
+  m_LocalPosition: {x: 6, y: 1.39, z: -2.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1681149295}
@@ -971,7 +970,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1496307146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6847804, y: -3.13, z: 36.9}
+  m_LocalPosition: {x: 2.6847804, y: -0.36000013, z: -5.779999}
   m_LocalScale: {x: 20, y: 1, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1135,7 +1134,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1522441011366426, guid: 748b63d61d392624c8159d0ca23a7b39, type: 2}
   location: {fileID: 1972104606}
-  mEnemyCount: 0
   spawnTimer: 3
   mEnemyArray: []
 --- !u!4 &1972104608

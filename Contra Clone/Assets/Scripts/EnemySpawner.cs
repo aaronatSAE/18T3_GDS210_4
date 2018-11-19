@@ -6,7 +6,6 @@ public class EnemySpawner : MonoBehaviour {
 
     public GameObject enemy;
     public GameObject location;
-    public int mEnemyCount = 0;
     private float timer = 3.0f;
     public float spawnTimer = 3.0f;
     public GameObject[] mEnemyArray;
@@ -16,18 +15,19 @@ public class EnemySpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         timer = spawnTimer;
+        
 
     }
 
     // Update is called once per frame
     void Update() {
         timer -= Time.deltaTime;
-        Debug.Log(mEnemyCount);
-        
+        Debug.Log(timer);
         if (timer < 0)
         {                    
             Spawn();
             timer = spawnTimer;
+            Debug.Log(mEnemyArray.Length);
         }
 
     }
@@ -35,11 +35,12 @@ public class EnemySpawner : MonoBehaviour {
     public void Spawn()
     {
         mEnemyArray = GameObject.FindGameObjectsWithTag("Enemy");
-        
+        Debug.Log("Check1,2");
         if (mEnemyArray.Length < 10)
         {
-            Instantiate(enemy, location.transform);
             
+            Instantiate(enemy, location.transform);
+            Debug.Log("CHHHHHAAARRRRGGGEEEEE!!!!!!");
 
         }
     }
