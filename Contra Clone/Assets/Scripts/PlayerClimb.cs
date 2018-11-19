@@ -19,21 +19,24 @@ public class PlayerClimb : MonoBehaviour {
 		
 	}
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Bar")
         {
+            if(handRB.velocity.y <= 0)
+            {
 
+            }
 
             GetComponentInParent<PlayerMovement>().onBar = true;
         }
     }
 
-    private void OnCollisionExit(Collision other)
+    private void private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Bar")
         {
             GetComponentInParent<PlayerMovement>().onBar = false;
         }
-    }
+    }   
 }
