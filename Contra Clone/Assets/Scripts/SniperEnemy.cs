@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SniperEnemy : MonoBehaviour {
 
+    
     public GameObject playerLocation;
     public GameObject bullet;
     public float delayDuration = 1.0f;
@@ -26,7 +27,7 @@ public class SniperEnemy : MonoBehaviour {
         while(gameObject != null)
         {
 
-            transform.LookAt(playerLocation.transform);
+            transform.parent.transform.LookAt(playerLocation.transform);
             // if statement used so that there is a delay between shots
             if (Time.time > timeOfShot + delayDuration)
             {

@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Enemy") || other.CompareTag("eBullet"))
+        if(other.CompareTag("Enemy") || other.CompareTag("eBullet") || other.CompareTag("Senemy"))
         {
             lives--;
             StartCoroutine("CoOneSec");

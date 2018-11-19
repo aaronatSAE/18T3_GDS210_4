@@ -39,7 +39,7 @@ public class EnemySpawner : MonoBehaviour {
         if (mEnemyArray.Length < 10)
         {
             
-            Instantiate(enemy, location.transform);
+            Instantiate(enemy, transform.position, transform.rotation);
             //Debug.Log("CHHHHHAAARRRRGGGEEEEE!!!!!!");
 
         }
