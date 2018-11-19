@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletDamage : MonoBehaviour {
 
     public int damage = 1;
+    public bool checker;
 
 	// Use this for initialization
 	void Start () {
@@ -15,4 +16,12 @@ public class BulletDamage : MonoBehaviour {
 	void Update () {
 		
 	}
+    public void OnTriggerEnter(Collider other)
+    {
+        other.gameObject.GetComponent<EnemyHealth>().enemyLives -= damage;
+        Destroy(gameObject);
+        
+    }
+  
+    
 }

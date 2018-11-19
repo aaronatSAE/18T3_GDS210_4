@@ -19,8 +19,8 @@ TagManager:
   - 
   - PostProcessing
   - Melee Enemy
-  - 
-  - 
+  - pbullet
+  - ebullet
   - 
   - Player
   - 
