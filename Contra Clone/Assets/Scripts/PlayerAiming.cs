@@ -15,7 +15,7 @@ public class PlayerAiming : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        Debug.Log(aimAngle);
+        //Debug.Log(aimAngle);
         gameObject.transform.rotation = Quaternion.Euler(0, 0, aimAngle); 
         
         if(Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 1)
