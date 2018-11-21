@@ -4,45 +4,39 @@ using UnityEngine;
 
 public class PlayerClimb : MonoBehaviour {
 
-    //public Rigidbody handRB;
-    public bool check;
-    
+    //this script is to be attached to all climbing bars    
 
     // Use this for initialization
     void Start ()
     {
-        //handRB = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
     void Update ()
     {
-        Debug.Log("something");
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Bar")
+        if (other.gameObject.tag == "PlayerHand")
         {
-            Debug.Log("onBar");
-            check = true;
             //sets the quad collider of the bar on
-            other.transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(0).gameObject.SetActive(true);
             //toggles the players onBar state on
-            GetComponentInParent<PlayerMovement>().onBar = true;
+            other.gameObject.transform.GetComponentInParent<PlayerMovement>().onBar = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Bar")
+        if (other.gameObject.tag == "PlayerHand")
         {
-            check = false;
-
             //sets the quad collider of the bar off
-            other.transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(0).gameObject.SetActive(false);
             //toggles the players onBar state off
-            GetComponentInParent<PlayerMovement>().onBar = false;
+            other.gameObject.transform.GetComponentInParent<PlayerMovement>().onBar = false;
         }
     }   
 }

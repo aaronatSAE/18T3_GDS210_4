@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerJump : MonoBehaviour {
+public class PlayerJumpSlide : MonoBehaviour {
 
     
     public Rigidbody playerRB;
@@ -34,9 +34,13 @@ public class PlayerJump : MonoBehaviour {
                 playerVelocity.y = barJumpSpeed;
                 playerRB.velocity = playerVelocity;
             }
+            else if (GetComponent<PlayerMovement>().isCrouched == true)
+            {
+                //slide code here
+            }
         }
 
-        //Debug.Log(Input.GetButtonDown("Jump") + ": " + playerRB.velocity);
+        
     }   
 }
   

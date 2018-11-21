@@ -13,6 +13,7 @@ TagManager:
   - Destroyable
   - Spawner
   - Senemy
+  - PlayerHand
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - ebullet
   - Platform
   - Player
-  - 
+  - Climbing Bar
   - 
   - 
   - 

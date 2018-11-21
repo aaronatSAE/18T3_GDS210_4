@@ -6,7 +6,7 @@ public class DrawLine : MonoBehaviour {
 
     private LineRenderer lineRenderer;
     private float counter;
-    private float dist;
+    //private float dist;
 
     public Transform origin;
     public Transform destination;
@@ -17,7 +17,7 @@ public class DrawLine : MonoBehaviour {
 	void Start () {
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.SetPosition(0, origin.position);
-        dist = Vector3.Distance(origin.position, destination.position);
+        //dist = Vector3.Distance(origin.position, destination.position);
         
 	}
 	

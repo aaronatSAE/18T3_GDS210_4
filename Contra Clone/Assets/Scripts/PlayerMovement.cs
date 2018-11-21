@@ -11,11 +11,13 @@ public class PlayerMovement : MonoBehaviour {
     public float climbSpeed = 1.0f;
     private float deltaX;
     public bool grounded = false;
+    public bool isCrouched = false;
+    public bool holdPosition = false;
     public bool onBar = false;
-    
+    //onBar is set using the PlayerClimb scripts attached to each bar and is true when holding oa bar.
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         playerRB = GetComponent<Rigidbody>();        
     }
@@ -25,36 +27,70 @@ public class PlayerMovement : MonoBehaviour {
     {        
         playerVelocity = playerRB.velocity;
 
-        if (Input.GetAxis("Horizontal") != 0.0f)
+        //when crouched or on hold the player is unable to move horizontally
+        if (isCrouched == false || holdPosition == false)
         {
-            if(grounded == true)
+            if (Input.GetAxisRaw("Horizontal") != 0.0f)
             {
-                deltaX = runSpeed * Input.GetAxis("Horizontal") / Mathf.Abs(Input.GetAxis("Horizontal"));
-            }
-            else if(onBar == true)
-            {
-                deltaX = climbSpeed * Input.GetAxis("Horizontal") / Mathf.Abs(Input.GetAxis("Horizontal"));
+                //running speed when on the ground
+                if (grounded == true)
+                {
+                    deltaX = runSpeed * Input.GetAxisRaw("Horizontal") / Mathf.Abs(Input.GetAxisRaw("Horizontal"));
+                }
+                //climbing speed when on a bar
+                else if (onBar == true)
+                {
+                    deltaX = climbSpeed * Input.GetAxisRaw("Horizontal") / Mathf.Abs(Input.GetAxisRaw("Horizontal"));
+                }
+                //aerial drift speed when airborne. the player can change the drift direction.
+                else
+                {
+                    deltaX = airSpeed * Input.GetAxisRaw("Horizontal") / Mathf.Abs(Input.GetAxisRaw("Horizontal"));
+                }
+                //code to set the above velocities
+                playerVelocity.x = deltaX;
+                playerRB.velocity = playerVelocity;
             }
             else
             {
-                deltaX = airSpeed * Input.GetAxis("Horizontal") / Mathf.Abs(Input.GetAxis("Horizontal"));
+                //player will quickly come to a stop when grounded or on a monkey bar and not hitting a direction
+                //in the air players will maintain their momentum when not hitting a direction
+                if (grounded == true || onBar == true)
+                {
+                    playerVelocity.x = 0;
+                    playerRB.velocity = playerVelocity;
+                }
+            }
+        }
+
+        //if the player is grounded or hanging on a bar they can hold their position to shoot in all directions without moving
+        if(grounded == true || onBar == true)
+        {
+            //setting the hold postion state
+            if(Input.GetKey(KeyCode.H) == true)
+            {
+                holdPosition = true;
+            }
+        }
+
+        
+        //while grounded the player can crouch by holding the crouch.
+        if(grounded == true)
+        {
+            //setting the crouch state
+            if(Input.GetKey(KeyCode.C))
+            {
+                isCrouched = true;
+
+                //crouch code here
             }
             
-            playerVelocity.x = deltaX;
-            playerRB.velocity = playerVelocity;            
         }
-        else
-        {
-            //player will quickly come to a stop when grounded or on a monkey bar and not hitting a direction
-            //in the air players will maintain their momentum when not hitting a direction
-            if (grounded == true || onBar == true)
-            {
-                playerVelocity.x = 0;
-                playerRB.velocity = playerVelocity;
-            }           
-        }
+
     }
 
+
+    //setting the grounded state
     private void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.tag == "Platform")
@@ -70,5 +106,7 @@ public class PlayerMovement : MonoBehaviour {
             grounded = false;
         }        
     }
+
+
 }
 
