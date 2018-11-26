@@ -29,8 +29,8 @@ public class BossMovement : MonoBehaviour {
     public void DecisionMaker()
     {
         Debug.Log("What to do");
-        int rand = Random.Range(0, 2);
-        if(rand == 0)
+        int rand = Random.Range(0, 3);
+        if(rand == 1)
         {
             Debug.Log("which attack");
             if (pos == 1)
@@ -60,10 +60,10 @@ public class BossMovement : MonoBehaviour {
     {
         Debug.Log("where to move");
         int rand2 = Random.Range(0, 3);
-        if (rand2 == 0)
+        if (rand2 == 0 )
         {
             Debug.Log("position 2");
-            transform.position = currentLocations[1].transform.position;
+            transform.position = Vector3.Lerp(transform.position, currentLocations[1].transform.position, 1f);
             pos = 2;
             DecisionMaker();
         }
@@ -71,7 +71,7 @@ public class BossMovement : MonoBehaviour {
         if (rand2 == 1)
         {
             Debug.Log("positon 3");
-            transform.position = currentLocations[2].transform.position;
+            transform.position = Vector3.Lerp(transform.position, currentLocations[2].transform.position, 1f);
             pos = 3;
             DecisionMaker();
         }
@@ -79,7 +79,8 @@ public class BossMovement : MonoBehaviour {
         if (rand2 == 2)
         {
             Debug.Log("position 1");
-            transform.position = currentLocations[0].transform.position;
+
+            transform.position = Vector3.Lerp(transform.position, currentLocations[0].transform.position, 1f);
             pos = 1;
             DecisionMaker();
         }
@@ -118,21 +119,27 @@ public class BossMovement : MonoBehaviour {
         Debug.Log("Attack 2 Occurs");
         attackLine.SetPosition(0, transform.position);
         yield return StartCoroutine(MoveFromTo(fist.transform, transform.position, attackPositions[1].transform.position, 20f));
+        attackLine.SetPosition(0, attackPositions[1].transform.position);
+        yield return StartCoroutine(MoveFromTo(fist.transform, attackPositions[1].transform.position, attackPositions[2].transform.position, 20f));
 
 
-
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         DecisionMaker();
     }
 
     public IEnumerator CoAttack3()
     {
         Debug.Log("Attack 3 Occurs");
-        attackLine.SetPosition(0, transform.position);
-        yield return StartCoroutine(MoveFromTo(fist.transform, transform.position, attackPositions[3].transform.position, 20f));
+        attackLine.SetPosition(0, attackPositions[10].transform.position);
+        yield return StartCoroutine(MoveFromTo(fist.transform, attackPositions[10].transform.position, attackPositions[3].transform.position, 20f));
+        attackLine.SetPosition(0, attackPositions[9].transform.position);
+        yield return StartCoroutine(MoveFromTo(fist.transform, attackPositions[9].transform.position, attackPositions[4].transform.position, 20f));
+        attackLine.SetPosition(0, attackPositions[8].transform.position);
+        yield return StartCoroutine(MoveFromTo(fist.transform, attackPositions[8].transform.position, attackPositions[5].transform.position, 20f));
+        attackLine.SetPosition(0, attackPositions[7].transform.position);
+        yield return StartCoroutine(MoveFromTo(fist.transform, attackPositions[7].transform.position, attackPositions[6].transform.position, 20f));
 
-
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         DecisionMaker();
     }
 
