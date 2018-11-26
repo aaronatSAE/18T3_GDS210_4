@@ -9,6 +9,9 @@ public class BossMovement : MonoBehaviour {
     public float timeTurn = 3f;
     public GameObject[] attackPositions;
     [SerializeField] LineRenderer attackLine;
+    [SerializeField] private float attack1Speed;
+    [SerializeField] private float attack2Speed;
+    [SerializeField] private float attack3Speed;
     public float speed = 1;
     public GameObject fist;
 
@@ -105,10 +108,14 @@ public class BossMovement : MonoBehaviour {
         Debug.Log("Attack 1 Occurs");
         //fist.transform.position = attackPositions[0].transform.position;
         attackLine.SetPosition(0, transform.position);
-        yield return StartCoroutine(MoveFromTo(fist.transform, transform.position, attackPositions[0].transform.position,20f));
-        
-   
 
+        yield return StartCoroutine(
+            MoveFromTo(
+                fist.transform, 
+                transform.position, 
+                attackPositions[0].transform.position,
+                attack1Speed));
+        
         yield return new WaitForSeconds(0.5f);
 
         DecisionMaker();
@@ -117,13 +124,28 @@ public class BossMovement : MonoBehaviour {
     public IEnumerator CoAttack2()
     {
         Debug.Log("Attack 2 Occurs");
+
         attackLine.SetPosition(0, transform.position);
-        yield return StartCoroutine(MoveFromTo(fist.transform, transform.position, attackPositions[1].transform.position, 20f));
+
+        yield return StartCoroutine(
+            MoveFromTo(
+                fist.transform, 
+                transform.position, 
+                attackPositions[1].transform.position, 
+                attack2Speed));
+
         attackLine.SetPosition(0, attackPositions[1].transform.position);
-        yield return StartCoroutine(MoveFromTo(fist.transform, attackPositions[1].transform.position, attackPositions[2].transform.position, 20f));
+
+        yield return StartCoroutine(
+            MoveFromTo(
+                fist.transform, 
+                attackPositions[1].transform.position, 
+                attackPositions[2].transform.position, 
+                attack2Speed));
 
 
         yield return new WaitForSeconds(0.5f);
+
         DecisionMaker();
     }
 
@@ -131,15 +153,43 @@ public class BossMovement : MonoBehaviour {
     {
         Debug.Log("Attack 3 Occurs");
         attackLine.SetPosition(0, attackPositions[10].transform.position);
-        yield return StartCoroutine(MoveFromTo(fist.transform, attackPositions[10].transform.position, attackPositions[3].transform.position, 20f));
+
+        yield return StartCoroutine(
+            MoveFromTo(
+                fist.transform, 
+                attackPositions[10].transform.position, 
+                attackPositions[3].transform.position, 
+                attack3Speed));
+
         attackLine.SetPosition(0, attackPositions[9].transform.position);
-        yield return StartCoroutine(MoveFromTo(fist.transform, attackPositions[9].transform.position, attackPositions[4].transform.position, 20f));
-        attackLine.SetPosition(0, attackPositions[8].transform.position);
-        yield return StartCoroutine(MoveFromTo(fist.transform, attackPositions[8].transform.position, attackPositions[5].transform.position, 20f));
+
+        yield return StartCoroutine(
+            MoveFromTo(
+                fist.transform, 
+                attackPositions[9].transform.position, 
+                attackPositions[4].transform.position,
+                attack3Speed));
+
+        attackLine.SetPosition( 0, attackPositions[8].transform.position);
+
+        yield return StartCoroutine(
+            MoveFromTo(
+                fist.transform, 
+                attackPositions[8].transform.position,
+                attackPositions[5].transform.position,
+                attack3Speed));
+
         attackLine.SetPosition(0, attackPositions[7].transform.position);
-        yield return StartCoroutine(MoveFromTo(fist.transform, attackPositions[7].transform.position, attackPositions[6].transform.position, 20f));
+
+        yield return StartCoroutine(
+            MoveFromTo(
+                fist.transform, 
+                attackPositions[7].transform.position, 
+                attackPositions[6].transform.position,
+                attack3Speed));
 
         yield return new WaitForSeconds(0.5f);
+
         DecisionMaker();
     }
 

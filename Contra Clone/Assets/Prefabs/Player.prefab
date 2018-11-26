@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 65381827233485134}
   m_Layer: 13
   m_Name: body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,8 +121,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1799759481585274}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.13, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 262.85925, y: -28.33, z: 0.013326645}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4356321018115686}
@@ -163,7 +163,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1758637633031892}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.5, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -390,11 +390,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1acfbcba4bff54887e5557c5aaa667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRB: {fileID: 0}
+  playerRB: {fileID: 54814178502515436}
   runSpeed: 10
   airSpeed: 6
   climbSpeed: 5
   grounded: 0
+  isCrouched: 0
+  holdPosition: 0
   onBar: 0
 --- !u!114 &114183491973206568
 MonoBehaviour:
@@ -407,7 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d71fae63e1e921429866d94c870f646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aimAngle: 0
+  aimAngle: 90
 --- !u!114 &114192786129176410
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -419,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 647545c0902c12a49923311b1383a676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRB: {fileID: 0}
+  playerRB: {fileID: 54814178502515436}
   groundJumpSpeed: 9
   barJumpSpeed: 5
 --- !u!135 &135768506861339802

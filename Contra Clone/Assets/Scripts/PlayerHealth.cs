@@ -32,7 +32,9 @@ public class PlayerHealth : MonoBehaviour {
     public IEnumerator CoOneSec()
     {
         //code that stops triggers or collision with enemy and ebullets
+        GetComponent<BoxCollider>().enabled = false;
         yield return new WaitForSeconds(3f);
         //code that activates triggers or collision with enemy and ebullets
+        GetComponent<BoxCollider>().enabled = true;
     }
 }
