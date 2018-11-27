@@ -36,5 +36,7 @@ public class PlayerHealth : MonoBehaviour {
         yield return new WaitForSeconds(3f);
         //code that activates triggers or collision with enemy and ebullets
         GetComponent<BoxCollider>().enabled = true;
+        yield return 0;
     }
 }
+

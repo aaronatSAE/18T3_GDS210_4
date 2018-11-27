@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 33780033003346126}
   - component: {fileID: 23556609394034182}
   - component: {fileID: 65381827233485134}
+  - component: {fileID: 114168298909270980}
   m_Layer: 13
   m_Name: body
   m_TagString: Player
@@ -121,8 +122,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1799759481585274}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 262.85925, y: -28.33, z: 0.013326645}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -61.341557, y: -2.17, z: -0.5058174}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4356321018115686}
@@ -331,7 +332,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1456346698274808}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -379,6 +380,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1249848180827616, guid: a3b38890c84636544b34dd62ddeeb3eb, type: 2}
   delayDuration: 0.1
+--- !u!114 &114168298909270980
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1456346698274808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5f85f7cbfa02048b295c5ee59d29bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1799759481585274}
+  lives: 9
 --- !u!114 &114176261966367892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -423,7 +437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRB: {fileID: 54814178502515436}
   groundJumpSpeed: 9
-  barJumpSpeed: 5
+  barJumpSpeed: 7.5
 --- !u!135 &135768506861339802
 SphereCollider:
   m_ObjectHideFlags: 1
