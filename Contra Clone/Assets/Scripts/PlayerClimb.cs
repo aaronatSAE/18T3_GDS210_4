@@ -39,4 +39,6 @@ public class PlayerClimb : MonoBehaviour {
             other.gameObject.transform.GetComponentInParent<PlayerMovement>().onBar = false;
         }
     }   
+
+    //&& other.GetComponentInParent<Rigidbody>().velocity.y< 0.0f
 }
