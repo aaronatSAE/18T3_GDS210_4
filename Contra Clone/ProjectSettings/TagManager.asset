@@ -14,6 +14,7 @@ TagManager:
   - Spawner
   - Senemy
   - PlayerHand
+  - Sensor
   layers:
   - Default
   - TransparentFX

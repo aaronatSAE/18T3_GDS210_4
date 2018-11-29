@@ -59,7 +59,7 @@ public class PlayerJumpSlide : MonoBehaviour {
         yield return new WaitForSeconds(slideAttackTime);
 
         //de-activating the invulnerable time of the slide by turning on the body trigger
-        transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;
+        transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
         //de-activating the attack box of the slide
         transform.GetChild(1).gameObject.SetActive(false);
 
