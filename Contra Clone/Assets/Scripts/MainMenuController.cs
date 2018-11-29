@@ -14,7 +14,7 @@ public class MainMenuController : MonoBehaviour {
 		//loadscene
 	public void PlayGame()
 	{
-		SceneManager.LoadScene ("Stephen_");
+		SceneManager.LoadScene ("GameLevel_SW");
 	}
 		//exit
 	public void Quit()
