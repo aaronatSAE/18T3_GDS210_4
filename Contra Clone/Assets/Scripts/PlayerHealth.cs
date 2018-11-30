@@ -13,12 +13,12 @@ public class PlayerHealth : MonoBehaviour {
     public float livesPercent;	
 	
 	public AudioClip sound; 
-    private AudioSource soundPlayer;
+    private AudioSource audioPlayer;
 	// Use this for initialization
 	void Start () {
 		//Initialize player healthbar
 		maxLives = lives;
-        soundPlayer = GameObject.FindWithTag("Player").GetComponent<AudioSource>();
+        audioPlayer = GameObject.FindWithTag("Player").GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour {
             lives--;
             StartCoroutine("CoOneSec");
 			//Start draw health function
-            soundPlayer.PlayOneShot(sound, 1f);
+            audioPlayer.PlayOneShot(sound, 1f);
 			DrawLives();
         }
     }
