@@ -3684,6 +3684,25 @@ Prefab:
       propertyPath: m_Size.x
       value: 3.273884
       objectReference: {fileID: 0}
+    - target: {fileID: 54814178502515436, guid: 9d2f410dd705b8b4294c253e0731a1a0,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65759919627303044, guid: 9d2f410dd705b8b4294c253e0731a1a0,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54814178502515436, guid: 9d2f410dd705b8b4294c253e0731a1a0,
+        type: 2}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456346698274808, guid: 9d2f410dd705b8b4294c253e0731a1a0, type: 2}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d2f410dd705b8b4294c253e0731a1a0, type: 2}
   m_IsPrefabAsset: 0
