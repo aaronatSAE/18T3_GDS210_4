@@ -8,19 +8,19 @@ public class BossMovement : MonoBehaviour {
     public GameObject[] attackPositions; // locations the attack sphere moves to and from
     [SerializeField] private GameObject hand; // the empty gameobject where the attack sphere is attached to
     public int pos; //determine what position it is
-   
-    [SerializeField] LineRenderer attackLine;
-    [SerializeField] private float attack1Speed;
-    [SerializeField] private float attack2Speed;
-    [SerializeField] private float attack3Speed;
-    public float speed = 1;
-    public GameObject fist;
+    public float timeTurn = 3f; // ??????????
+    [SerializeField] LineRenderer attackLine; //grabs the details from line renderer component
+    [SerializeField] private float attack1Speed; //speed of attack 1
+    [SerializeField] private float attack2Speed; //speed of attack 2
+    [SerializeField] private float attack3Speed; //speed of attack 3
+    public float speed = 1; //how fast ball moves in original inumerator
+    public GameObject fist; // the attack sphere
 
     private Animator animator;
 
 	// Use this for initialization
 	void Start () {
-        animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>(); // get animator cop
         Debug.Log("Begin");
         transform.position = currentLocations[0].transform.position;
         pos = 1;
