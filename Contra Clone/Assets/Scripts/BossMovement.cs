@@ -67,6 +67,7 @@ public class BossMovement : MonoBehaviour
         {
             //Debug.Log("position 2");
             transform.position = currentLocations[1].transform.position; // Changes position of boss
+            transform.rotation = currentLocations[1].transform.rotation;
             pos = 2; // Makes the position correspond with world position
             DecisionMaker(); // starts decision making system
         }
@@ -75,6 +76,8 @@ public class BossMovement : MonoBehaviour
         {
             //Debug.Log("positon 3");
             transform.position = currentLocations[2].transform.position; // Changes position of boss
+            transform.rotation = currentLocations[2].transform.rotation;
+
             pos = 3; // Makes the position correspond with world position
             DecisionMaker(); // starts decision making system
         }
@@ -83,6 +86,7 @@ public class BossMovement : MonoBehaviour
         {
             //Debug.Log("position 1");
             transform.position = currentLocations[0].transform.position; // Changes position of boss
+            transform.rotation = currentLocations[0].transform.rotation;
             pos = 1; // Makes the position correspond with world position
             DecisionMaker(); // starts decision making system
         }
