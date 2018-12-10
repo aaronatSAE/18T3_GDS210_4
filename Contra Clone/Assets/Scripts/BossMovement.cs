@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BossMovement : MonoBehaviour {
 
-    public GameObject[] currentLocations;
-    public int pos;
-    public float timeTurn = 3f;
-    public GameObject[] attackPositions;
+    public GameObject[] currentLocations; // locations the boss teleports to
+    public GameObject[] attackPositions; // locations the attack sphere moves to and from
+    [SerializeField] private GameObject hand; // the empty gameobject where the attack sphere is attached to
+    public int pos; //determine what position it is
+   
     [SerializeField] LineRenderer attackLine;
     [SerializeField] private float attack1Speed;
     [SerializeField] private float attack2Speed;
@@ -70,7 +71,7 @@ public class BossMovement : MonoBehaviour {
         if (rand2 == 0 )
         {
             Debug.Log("position 2");
-            transform.position = Vector3.Lerp(transform.position, currentLocations[1].transform.position, 1f);
+            transform.position = currentLocations[1].transform.position;
             pos = 2;
             DecisionMaker();
         }
@@ -78,7 +79,7 @@ public class BossMovement : MonoBehaviour {
         if (rand2 == 1)
         {
             Debug.Log("positon 3");
-            transform.position = Vector3.Lerp(transform.position, currentLocations[2].transform.position, 1f);
+            transform.position = currentLocations[2].transform.position;
             pos = 3;
             DecisionMaker();
         }
@@ -87,7 +88,7 @@ public class BossMovement : MonoBehaviour {
         {
             Debug.Log("position 1");
 
-            transform.position = Vector3.Lerp(transform.position, currentLocations[0].transform.position, 1f);
+            transform.position = currentLocations[0].transform.position;
             pos = 1;
             DecisionMaker();
         }
@@ -113,12 +114,12 @@ public class BossMovement : MonoBehaviour {
 
         Debug.Log("Attack 1 Occurs");
         //fist.transform.position = attackPositions[0].transform.position;
-        attackLine.SetPosition(0, transform.position);
+        attackLine.SetPosition(0, hand.transform.position);
 
         yield return StartCoroutine(
             MoveFromTo(
                 fist.transform, 
-                transform.position, 
+                hand.transform.position, 
                 attackPositions[0].transform.position,
                 attack1Speed));
 
@@ -136,12 +137,12 @@ public class BossMovement : MonoBehaviour {
 
         Debug.Log("Attack 2 Occurs");
 
-        attackLine.SetPosition(0, transform.position);
+        attackLine.SetPosition(0, hand.transform.position);
 
         yield return StartCoroutine(
             MoveFromTo(
                 fist.transform, 
-                transform.position, 
+                hand.transform.position, 
                 attackPositions[1].transform.position, 
                 attack2Speed));
 
@@ -176,7 +177,7 @@ public class BossMovement : MonoBehaviour {
                 attackPositions[3].transform.position, 
                 attack3Speed));
 
-        transform.position = Vector3.Lerp(transform.position, currentLocations[3].transform.position, 1f);
+        transform.position = currentLocations[3].transform.position;
         attackLine.SetPosition(0, attackPositions[9].transform.position);
 
         yield return StartCoroutine(
@@ -186,7 +187,7 @@ public class BossMovement : MonoBehaviour {
                 attackPositions[4].transform.position,
                 attack3Speed));
 
-        transform.position = Vector3.Lerp(transform.position, currentLocations[4].transform.position, 1f);
+        transform.position = currentLocations[4].transform.position;
         attackLine.SetPosition( 0, attackPositions[8].transform.position);
 
         yield return StartCoroutine(
@@ -196,7 +197,7 @@ public class BossMovement : MonoBehaviour {
                 attackPositions[5].transform.position,
                 attack3Speed));
 
-        transform.position = Vector3.Lerp(transform.position, currentLocations[5].transform.position, 1f);
+        transform.position = currentLocations[5].transform.position;
         attackLine.SetPosition(0, attackPositions[7].transform.position);
 
         yield return StartCoroutine(

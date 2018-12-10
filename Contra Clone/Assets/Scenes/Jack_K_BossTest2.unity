@@ -319,7 +319,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 84215455}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.970001, y: -1.585714, z: 0}
+  m_LocalPosition: {x: 4.970001, y: -1.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2017037687}
@@ -3767,7 +3767,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -3790,8 +3790,6 @@ MonoBehaviour:
   - {fileID: 64054872}
   - {fileID: 240778083}
   - {fileID: 1347901177}
-  pos: 0
-  timeTurn: 3
   attackPositions:
   - {fileID: 100316572}
   - {fileID: 1247158094}
@@ -3804,6 +3802,8 @@ MonoBehaviour:
   - {fileID: 567131163}
   - {fileID: 1273833901}
   - {fileID: 713549842}
+  hand: {fileID: 1383214676}
+  pos: 0
   attackLine: {fileID: 1454581239}
   attack1Speed: 30
   attack2Speed: 30
@@ -4625,7 +4625,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1247158094}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.050003, y: -0.5828574, z: 0}
+  m_LocalPosition: {x: -3.06, y: -1.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2017037687}
@@ -4931,9 +4931,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1383214676}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.20382762, y: 0.8971432, z: 0.08571946}
-  m_LocalScale: {x: 0.25714305, y: 0.3, z: 0.25714305}
+  m_LocalRotation: {x: -0.000000049580652, y: 0.7071068, z: -0.00000003237574, w: 0.7071068}
+  m_LocalPosition: {x: -0.014, y: 1.268, z: 0.305}
+  m_LocalScale: {x: 0.25714323, y: 0.30000007, z: 0.25714332}
   m_Children:
   - {fileID: 1204874769}
   m_Father: {fileID: 1084650652}
