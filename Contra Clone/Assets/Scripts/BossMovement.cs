@@ -15,13 +15,17 @@ public class BossMovement : MonoBehaviour {
     public float speed = 1;
     public GameObject fist;
 
+    private Animator animator;
+
 	// Use this for initialization
 	void Start () {
+        animator = GetComponent<Animator>();
         Debug.Log("Begin");
         transform.position = currentLocations[0].transform.position;
         pos = 1;
         DecisionMaker();
 	}
+
 
     // Update is called once per frame
     void Update()
@@ -105,6 +109,8 @@ public class BossMovement : MonoBehaviour {
 
     public IEnumerator CoAttack1()
     {
+        animator.SetBool("Attack1 Used", true);
+
         Debug.Log("Attack 1 Occurs");
         //fist.transform.position = attackPositions[0].transform.position;
         attackLine.SetPosition(0, transform.position);
@@ -115,14 +121,19 @@ public class BossMovement : MonoBehaviour {
                 transform.position, 
                 attackPositions[0].transform.position,
                 attack1Speed));
-        
+
+        animator.SetBool("Attack1 Used", false);
+
         yield return new WaitForSeconds(0.5f);
 
+        //begins next decision
         DecisionMaker();
     }
 
     public IEnumerator CoAttack2()
     {
+        animator.SetBool("Attack2 Used", true);
+
         Debug.Log("Attack 2 Occurs");
 
         attackLine.SetPosition(0, transform.position);
@@ -143,14 +154,18 @@ public class BossMovement : MonoBehaviour {
                 attackPositions[2].transform.position, 
                 attack2Speed));
 
+        animator.SetBool("Attack2 Used", false);
 
         yield return new WaitForSeconds(0.5f);
 
+        //begins next decision
         DecisionMaker();
     }
 
     public IEnumerator CoAttack3()
     {
+        animator.SetBool("Attack3 Used", true);
+
         Debug.Log("Attack 3 Occurs");
         attackLine.SetPosition(0, attackPositions[10].transform.position);
 
@@ -161,6 +176,7 @@ public class BossMovement : MonoBehaviour {
                 attackPositions[3].transform.position, 
                 attack3Speed));
 
+        transform.position = Vector3.Lerp(transform.position, currentLocations[3].transform.position, 1f);
         attackLine.SetPosition(0, attackPositions[9].transform.position);
 
         yield return StartCoroutine(
@@ -170,6 +186,7 @@ public class BossMovement : MonoBehaviour {
                 attackPositions[4].transform.position,
                 attack3Speed));
 
+        transform.position = Vector3.Lerp(transform.position, currentLocations[4].transform.position, 1f);
         attackLine.SetPosition( 0, attackPositions[8].transform.position);
 
         yield return StartCoroutine(
@@ -179,6 +196,7 @@ public class BossMovement : MonoBehaviour {
                 attackPositions[5].transform.position,
                 attack3Speed));
 
+        transform.position = Vector3.Lerp(transform.position, currentLocations[5].transform.position, 1f);
         attackLine.SetPosition(0, attackPositions[7].transform.position);
 
         yield return StartCoroutine(
@@ -188,8 +206,11 @@ public class BossMovement : MonoBehaviour {
                 attackPositions[6].transform.position,
                 attack3Speed));
 
+        animator.SetBool("Attack3 Used", false);
+
         yield return new WaitForSeconds(0.5f);
 
+        //begins next decision
         DecisionMaker();
     }
 
