@@ -5,9 +5,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public Rigidbody playerRB;
-    public BoxCollider playerCollider;
-    public Vector3 standColliderDimensions = new Vector3(1, 2, 1);
-    public Vector3 crouchColliderDimensions = new Vector3(2, 1, 1);
+    public CapsuleCollider playerCollider;
+
+    //Capsule legth orientation: 0 -> x-axis. 1 -> y-axis. 2 -> z-axis.
+    public int standColliderOrientation = 1;
+    public int crouchColliderOrientation = 2;
+
     private Vector3 playerVelocity;
     public float runSpeed = 1.0f;
     public float airSpeed = 1.0f;
@@ -26,7 +29,7 @@ public class PlayerMovement : MonoBehaviour {
     void Start ()
     {
         playerRB = GetComponent<Rigidbody>();
-        playerCollider = GetComponent<BoxCollider>();
+        playerCollider = GetComponent<CapsuleCollider>();
     }
 	
 	// Update is called once per frame
@@ -176,7 +179,7 @@ public class PlayerMovement : MonoBehaviour {
             playerRB.velocity = Vector3.zero;
         }
 
-        playerCollider.size = crouchColliderDimensions;
+        playerCollider.direction = crouchColliderOrientation;
         transform.GetChild(0).gameObject.transform.localRotation = Quaternion.Euler(90, 0, 0);
 
         var playerPosition = transform.position;
@@ -187,7 +190,7 @@ public class PlayerMovement : MonoBehaviour {
     //Stand resets the players hitbox and position
     public void Stand()
     {
-        playerCollider.size = standColliderDimensions;
+        playerCollider.direction = standColliderOrientation;
         transform.GetChild(0).gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
 
         var playerPosition = transform.position;
