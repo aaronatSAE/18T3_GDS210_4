@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e696eef6a40494d40ba56e03ee2c8a1d
+guid: d9a614154c08c824bb3166c2c2719f28
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -177,6 +177,7 @@ ModelImporter:
     4300004: Hat
     7400000: Armature|PlayerHangingAnimation
     7400002: Armature|PlayerHangingAnimation_Move
+    7400004: mixamo.com
     9500000: //RootNode
     13700000: Coat
     13700002: Hat
@@ -202,7 +203,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -256,7 +257,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
