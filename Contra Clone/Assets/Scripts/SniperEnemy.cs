@@ -40,7 +40,7 @@ public class SniperEnemy : MonoBehaviour {
             if (Time.time > timeOfShot + delayDuration)
             {
                 //Creates a bullet
-                Instantiate(bullet, transform.position, transform.rotation);
+                Instantiate(bullet, gun.transform.position, gun.transform.rotation);
 
                 //makes the time when shot equal to time in game
                 timeOfShot = Time.time;
