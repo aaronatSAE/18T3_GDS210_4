@@ -20,7 +20,14 @@ public class SniperEnemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
+        if (playerLocation.transform.position.x > transform.position.x)
+        {
+            transform.localRotation = Quaternion.Euler(0, 90, 0);
+        }
+        else
+        {
+            transform.localRotation = Quaternion.Euler(0, -90, 0);
+        }
     }
 
     public IEnumerator CoLocate()
