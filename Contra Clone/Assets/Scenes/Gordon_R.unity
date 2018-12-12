@@ -290,7 +290,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1425237551}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &394628421
 GameObject:
@@ -431,12 +431,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5859daad8906d049a218a9fc0234511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barShooting: 1
-  sliding: 0
-  rightHandOnGun: {fileID: 1540107122}
-  leftHandOnGun: {fileID: 394628422}
-  rightHandHanging: {fileID: 141219060}
-  leftHandHanging: {fileID: 394628422}
+  barShooting: 0
+  crouched: 0
+  gunActive: 1
+  machineGunActive: 1
+  machineGunFrontHandle: {fileID: 1540107122}
+  machineGunTriggerHandle: {fileID: 394628422}
+  missileFrontHandle: {fileID: 602760643}
+  missileTriggerHandle: {fileID: 223799274}
+  handHangingHandle: {fileID: 141219060}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,7 +654,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1425237551}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &620497902 stripped
 Transform:
@@ -777,7 +780,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1425237551}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &937649678
 Prefab:
@@ -1027,9 +1030,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 1.4}
   m_LocalScale: {x: 1.4000005, y: 0.19999999, z: 0.4000002}
   m_Children:
-  - {fileID: 884920577}
   - {fileID: 223799274}
   - {fileID: 602760643}
+  - {fileID: 884920577}
   - {fileID: 1026810634}
   m_Father: {fileID: 1704753547}
   m_RootOrder: 1
@@ -1179,6 +1182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60cb15813206c0c4bb2ce1db2b822466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerModel: {fileID: 497725824}
 --- !u!114 &1704753549
 MonoBehaviour:
   m_ObjectHideFlags: 0

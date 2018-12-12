@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerChangeWeapon : MonoBehaviour {
 
     private bool weaponSwap = true;
+
+    public GameObject playerModel;    
     
     // Use this for initialization
 	void Start ()
@@ -18,6 +20,8 @@ public class PlayerChangeWeapon : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Q))
         {
             weaponSwap = !weaponSwap;
+            playerModel.GetComponent<IKController>().machineGunActive 
+                = !playerModel.GetComponent<IKController>().machineGunActive;
             transform.GetChild(0).gameObject.SetActive(weaponSwap);
             transform.GetChild(1).gameObject.SetActive(!weaponSwap);
         }
