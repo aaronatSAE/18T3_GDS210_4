@@ -5,11 +5,16 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public Rigidbody playerRB;
-    public CapsuleCollider playerCollider;
+    public Transform playerHitCollider;
 
-    //Capsule legth orientation: 0 -> x-axis. 1 -> y-axis. 2 -> z-axis.
-    public int standColliderOrientation = 1;
-    public int crouchColliderOrientation = 2;
+    public GameObject machineGunModel;
+    public GameObject missileGunModel;
+    public Transform defaultGunModelPosition;
+    public Transform onBarGunModelPosition;
+
+    //Capsule length orientation: 0 -> x-axis. 1 -> y-axis. 2 -> z-axis.
+    //public int standColliderOrientation = 1;
+    //public int crouchColliderOrientation = 2;
 
     private Vector3 playerVelocity;
     public float runSpeed = 1.0f;
@@ -29,7 +34,7 @@ public class PlayerMovement : MonoBehaviour {
     void Start ()
     {
         playerRB = GetComponent<Rigidbody>();
-        playerCollider = GetComponent<CapsuleCollider>();
+        playerHitCollider = transform.GetChild(0);
     }
 	
 	// Update is called once per frame
@@ -107,7 +112,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if(grounded == true)
         {
-            //while grounded the player can crouch by holding the crouch and while crouched they can only aim forward.
+            //while grounded the player can crouch by holding the crouch button and while crouched they can only aim forward.
             if (Input.GetKeyDown(KeyCode.C))
             {
                 Crouch();
@@ -146,6 +151,18 @@ public class PlayerMovement : MonoBehaviour {
                 playerRB.velocity = playerVelocity;
             }
         }
+
+        //setting the gunmodels positon
+        if (onBar)
+        {
+            machineGunModel.transform.position = onBarGunModelPosition.position;
+            missileGunModel.transform.position = onBarGunModelPosition.position;
+        }
+        else
+        {
+            machineGunModel.transform.position = defaultGunModelPosition.position;
+            missileGunModel.transform.position = defaultGunModelPosition.position;
+        }
     }
 
     //setting the grounded state
@@ -179,23 +196,23 @@ public class PlayerMovement : MonoBehaviour {
             playerRB.velocity = Vector3.zero;
         }
 
-        playerCollider.direction = crouchColliderOrientation;
-        transform.GetChild(0).gameObject.transform.localRotation = Quaternion.Euler(90, 0, 0);
+        //playerHitCollider.direction = crouchColliderOrientation;
+        playerHitCollider.localRotation = Quaternion.Euler(90, 0, 0);
 
-        var playerPosition = transform.position;
+        var playerPosition = playerHitCollider.localPosition;
         playerPosition.y -= deltaY;
-        transform.position = playerPosition;
+        playerHitCollider.localPosition = playerPosition;
     }
 
     //Stand resets the players hitbox and position
     public void Stand()
     {
-        playerCollider.direction = standColliderOrientation;
-        transform.GetChild(0).gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        //playerHitCollider.direction = standColliderOrientation;
+        playerHitCollider.localRotation = Quaternion.Euler(0, 0, 0);
 
-        var playerPosition = transform.position;
+        var playerPosition = playerHitCollider.localPosition;
         playerPosition.y += deltaY;
-        transform.position = playerPosition;
+        playerHitCollider.localPosition = playerPosition;
     }
 
     //used to deactivate and reactivate the hand so the player let go of a bar    

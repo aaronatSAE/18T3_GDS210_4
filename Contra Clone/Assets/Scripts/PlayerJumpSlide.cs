@@ -6,7 +6,11 @@ public class PlayerJumpSlide : MonoBehaviour {
 
     
     public Rigidbody playerRB;
-    private Vector3 playerVelocity;    
+    private Vector3 playerVelocity;
+
+    public GameObject machineGun;
+    public GameObject missile;
+
     public float groundJumpSpeed = 1.0f;
     public float barJumpSpeed = 1.0f;
     public float slideForce = 500f;
@@ -48,18 +52,19 @@ public class PlayerJumpSlide : MonoBehaviour {
         //setting slide state
         GetComponent<PlayerMovement>().sliding = true;
         //disabling shooting for the slide
-        transform.GetChild(3).gameObject.SetActive(false);
+        machineGun.GetComponent<Shooting>().enabled = false;
+        missile.GetComponent<Shooting>().enabled = false;        
         //slides forward
         playerRB.AddForce(transform.forward * slideForce);
         //activating the invulnerable time of the slide by turning off the body trigger
-        transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;
+        transform.GetChild(0).GetComponent<CapsuleCollider>().enabled = false;
         //activating the attack box of the slide
         transform.GetChild(1).gameObject.SetActive(true);
 
         yield return new WaitForSeconds(slideAttackTime);
 
         //de-activating the invulnerable time of the slide by turning on the body trigger
-        transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
+        transform.GetChild(0).GetComponent<CapsuleCollider>().enabled = true;
         //de-activating the attack box of the slide
         transform.GetChild(1).gameObject.SetActive(false);
 
@@ -73,7 +78,9 @@ public class PlayerJumpSlide : MonoBehaviour {
         //setting slide state
         GetComponent<PlayerMovement>().sliding = false;
         //enabling shooting after the slide
-        transform.GetChild(3).gameObject.SetActive(true);
+        machineGun.GetComponent<Shooting>().enabled = true;
+        missile.GetComponent<Shooting>().enabled = true;
+        //transform.GetChild(3).gameObject.SetActive(true);
         //resetting the velocity
         playerRB.velocity = Vector3.zero;        
     }    

@@ -46,7 +46,22 @@ ModelImporter:
     3300002: pPlane5
     4300000: pPlane5
     4300002: pCylinder3
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: 0389c8ee8a203d54b9d14911333e2b2c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert3
+    second: {fileID: 2100000, guid: 0389c8ee8a203d54b9d14911333e2b2c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert4
+    second: {fileID: 2100000, guid: 0389c8ee8a203d54b9d14911333e2b2c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAiming : MonoBehaviour {
 
     public float aimAngle = 0.0f;
+    public Transform aimingArmPivot;
     
     // Use this for initialization
 	void Start ()
@@ -15,7 +16,10 @@ public class PlayerAiming : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if(GetComponentInParent<PlayerMovement>().isCrouched != true)
+        //setting the pivot to be at the spine of the model
+        transform.position = aimingArmPivot.position;
+
+        if (GetComponentInParent<PlayerMovement>().isCrouched != true)
         {
             //aiming angles
             if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 1)

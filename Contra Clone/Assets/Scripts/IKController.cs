@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class IKController : MonoBehaviour {
 
-    protected Animator animator;
+    protected Animator anim;
 
-    public bool barShooting = false;
-    public bool crouched = false;
+    public GameObject aimingArm;
+
+    public bool barShooting = false;    
     public bool gunActive = true;
-    public bool machineGunActive = true;    
+
+    public bool machineGunActive = true;
+    //set from the PlayerWeaponChange script
 
     public Transform machineGunFrontHandle;
     public Transform machineGunTriggerHandle;
@@ -26,90 +29,99 @@ public class IKController : MonoBehaviour {
     // Use this for initialization
 	void Start ()
     {
-        animator = GetComponent<Animator>();
-	}
+        anim = GetComponent<Animator>();        
+    }
 
     public void Update()
     {
+        //selects the IK handles for the corresponding gun
         if (machineGunActive)
         {
-            rightHandOnGun = machineGunTriggerHandle;
-            leftHandOnGun = machineGunFrontHandle;
+            rightHandOnGun = machineGunFrontHandle;
+            leftHandOnGun = machineGunTriggerHandle;
             leftHandHanging = machineGunTriggerHandle;
         }
         else
         {
-            rightHandOnGun = missileTriggerHandle;
-            leftHandOnGun = missileFrontHandle;
+            rightHandOnGun = missileFrontHandle;
+            leftHandOnGun = missileTriggerHandle;
             leftHandHanging = missileTriggerHandle;
+        }
+
+        //setting the "barShooting" bool
+        if (anim.GetBool("on bar") == true && anim.GetBool("is climbing") == false)
+        {
+            barShooting = true;
+        }
+        else
+        {
+            barShooting = false;
+        }
+
+        //setting the "gunActive" bool
+        if (anim.GetBool("is climbing") == true)
+        {
+            gunActive = false;
+            //aiming arm deactivation
+            aimingArm.gameObject.SetActive(false);
+        }
+        else
+        {
+            gunActive = true;
+            aimingArm.gameObject.SetActive(true);
         }
     }
 
     //a callback for calculating IK
     private void OnAnimatorIK()
     {
-        if (animator)
+        if (anim)
         {
             //IK value setting when the player is shooting from the bar
             if (barShooting && gunActive)
             {
                 //right hand weights
-                animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
-                animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 1);
+                anim.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
+                anim.SetIKRotationWeight(AvatarIKGoal.RightHand, 1);
                 //left hand weights
-                animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
-                animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1);
+                anim.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
+                anim.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1);
 
                 //right hand transforms
-                animator.SetIKPosition(AvatarIKGoal.RightHand, handHangingHandle.position);
-                animator.SetIKRotation(AvatarIKGoal.RightHand, handHangingHandle.rotation);
+                anim.SetIKPosition(AvatarIKGoal.RightHand, handHangingHandle.position);
+                anim.SetIKRotation(AvatarIKGoal.RightHand, handHangingHandle.rotation);
                 //left hand transforms
-                animator.SetIKPosition(AvatarIKGoal.LeftHand, leftHandHanging.position);
-                animator.SetIKRotation(AvatarIKGoal.LeftHand, leftHandHanging.rotation);
+                anim.SetIKPosition(AvatarIKGoal.LeftHand, leftHandHanging.position);
+                anim.SetIKRotation(AvatarIKGoal.LeftHand, leftHandHanging.rotation);
             }
-            /*//IK value setting when the player is crouched
-            else if (crouched||gunActive)
-            {
-                //right hand weights
-                animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
-                animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 1);
-                //left hand weights
-                animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
-                animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1);
-
-                //right hand transforms
-                animator.SetIKPosition(AvatarIKGoal.RightHand, rightHandOnGun.position);
-                animator.SetIKRotation(AvatarIKGoal.RightHand, rightHandOnGun.rotation);
-                //left hand transforms
-                animator.SetIKPosition(AvatarIKGoal.LeftHand, leftHandOnGun.position);
-                animator.SetIKRotation(AvatarIKGoal.LeftHand, leftHandOnGun.rotation);
-            }*/
-            //if the animation does not invovle the gun then set IK values to default
+            
+            //if the animation does not involve the gun then set IK values to default
             else if (!gunActive)
             {
                 //right hand weights
-                animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 0);
-                animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 0);
+                anim.SetIKPositionWeight(AvatarIKGoal.RightHand, 0);
+                anim.SetIKRotationWeight(AvatarIKGoal.RightHand, 0);
                 //left hand weights
-                animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 0);
-                animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 0);
+                anim.SetIKPositionWeight(AvatarIKGoal.LeftHand, 0);
+                anim.SetIKRotationWeight(AvatarIKGoal.LeftHand, 0);
             }
+
             //IK value setting when the player is standing, running, crouching or airborne
             else
             {
                 //right hand weights
-                animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
-                animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 1);
+                anim.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
+                anim.SetIKRotationWeight(AvatarIKGoal.RightHand, 1);
                 //left hand weights
-                animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
-                animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1);
+                anim.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
+                anim.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1);
 
                 //right hand transforms
-                animator.SetIKPosition(AvatarIKGoal.RightHand, rightHandOnGun.position);
-                animator.SetIKRotation(AvatarIKGoal.RightHand, rightHandOnGun.rotation);
+                anim.SetIKPosition(AvatarIKGoal.RightHand, rightHandOnGun.position);
+                anim.SetIKRotation(AvatarIKGoal.RightHand, rightHandOnGun.rotation);
                 //left hand transforms
-                animator.SetIKPosition(AvatarIKGoal.LeftHand, leftHandOnGun.position);
-                animator.SetIKRotation(AvatarIKGoal.LeftHand, leftHandOnGun.rotation);
+                anim.SetIKPosition(AvatarIKGoal.LeftHand, leftHandOnGun.position);
+                anim.SetIKRotation(AvatarIKGoal.LeftHand, leftHandOnGun.rotation);
             }
             
         }

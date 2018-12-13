@@ -6,18 +6,6 @@ public class PlayerClimb : MonoBehaviour {
 
     //this script is to be attached to all climbing bars    
 
-    // Use this for initialization
-    void Start ()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update ()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "PlayerHand")
@@ -38,7 +26,5 @@ public class PlayerClimb : MonoBehaviour {
             //toggles the players onBar state off
             other.gameObject.transform.GetComponentInParent<PlayerMovement>().onBar = false;
         }
-    }   
-
-    //&& other.GetComponentInParent<Rigidbody>().velocity.y< 0.0f
+    }
 }
