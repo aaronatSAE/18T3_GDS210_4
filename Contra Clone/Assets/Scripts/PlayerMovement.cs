@@ -220,7 +220,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         transform.GetChild(2).gameObject.SetActive(false);
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
 
         transform.GetChild(2).gameObject.SetActive(true);
     }
