@@ -5,6 +5,8 @@ using UnityEngine;
 public class BossSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject bossSpawn;
+    [SerializeField] private GameObject lineRenderer;
+    [SerializeField] private GameObject exitBlock;
 
     // Use this for initialization
     void Start()
@@ -20,9 +22,11 @@ public class BossSpawner : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("player"))
+        if (other.CompareTag("Player"))
         {
             bossSpawn.SetActive(true);
+            lineRenderer.SetActive(true);
+            exitBlock.transform.localScale = new Vector3(1, 25, 5);
             Destroy(gameObject);
         }
     }
