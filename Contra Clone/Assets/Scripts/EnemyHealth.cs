@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour {
 
     public int enemyLives = 1;
+    public GameObject explosionParticle;
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +16,8 @@ public class EnemyHealth : MonoBehaviour {
 	void Update () {
 		if(enemyLives <= 0)
         {
+            Instantiate(explosionParticle, transform.position, transform.rotation);
+           
             Destroy(gameObject);
         }
 	}
