@@ -18,6 +18,11 @@ public class BossMovement : MonoBehaviour
 
     private Animator animator; // creates component slot for this gameobject
 
+    public AudioSource BossAudio;
+    public AudioClip bossAttack1;
+    public AudioClip bossAttack2;
+    public AudioClip bossAttack3;
+
     // Use this for initialization
     void Start()
     {
@@ -26,6 +31,8 @@ public class BossMovement : MonoBehaviour
         transform.position = currentLocations[0].transform.position; // the starting location of boss battle
         pos = 1; // makes the position corresponding to inital starting position
         DecisionMaker(); // starts decision making system
+
+        BossAudio = GetComponent<AudioSource>();
     }
 
     // Boss Decision Making System
@@ -112,6 +119,8 @@ public class BossMovement : MonoBehaviour
     {
         animator.SetBool("Attack1 Used", true); // players attack 1 animation, sets parameter true
 
+        BossAudio.PlayOneShot(bossAttack1);
+
         Debug.Log("Attack 1 Occurs");
         //fist.transform.position = attackPositions[0].transform.position;
         attackLine.SetPosition(0, hand.transform.position);
@@ -134,6 +143,8 @@ public class BossMovement : MonoBehaviour
     public IEnumerator CoAttack2()
     {
         animator.SetBool("Attack2 Used", true); // players attack 2 animation, sets parameter true
+
+        BossAudio.PlayOneShot(bossAttack2);
 
         Debug.Log("Attack 2 Occurs");
 
@@ -166,6 +177,8 @@ public class BossMovement : MonoBehaviour
     public IEnumerator CoAttack3()
     {
         animator.SetBool("Attack3 Used", true); // players attack 3 animation, sets parameter true
+
+        BossAudio.PlayOneShot(bossAttack3);
 
         Debug.Log("Attack 3 Occurs");
         attackLine.SetPosition(0, attackPositions[10].transform.position); // sets the line renderers first point

@@ -7,6 +7,8 @@ public class BulletDamage : MonoBehaviour {
     public int damage = 1;
     public bool checker;
 
+    public AudioClip enemyHitSound;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -21,11 +23,9 @@ public class BulletDamage : MonoBehaviour {
         if (other.CompareTag("Enemy") || other.CompareTag("Senemy"))
         {
             other.gameObject.GetComponent<EnemyHealth>().enemyLives -= damage;
-            //Destroy(gameObject);
 
-        }
-        
-        
+            other.gameObject.GetComponent<AudioSource>().PlayOneShot(enemyHitSound);
+        }       
     }
   
     

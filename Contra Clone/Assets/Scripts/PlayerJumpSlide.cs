@@ -15,12 +15,16 @@ public class PlayerJumpSlide : MonoBehaviour {
     public float barJumpSpeed = 1.0f;
     public float slideForce = 500f;
     public float slideAttackTime = 0.8f;
-    public float slideTotalTime = 1.2f;    
+    public float slideTotalTime = 1.2f;
 
-	// Use this for initialization
-	void Start ()
+    public AudioSource jumpAudio;
+    public AudioClip jumpSound;
+
+    // Use this for initialization
+    void Start ()
     {
         playerRB = GetComponent<Rigidbody>();
+        jumpAudio.GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -33,16 +37,19 @@ public class PlayerJumpSlide : MonoBehaviour {
                 playerVelocity = playerRB.velocity;
                 playerVelocity.y = groundJumpSpeed;
                 playerRB.velocity = playerVelocity;
+                jumpAudio.PlayOneShot(jumpSound);
             }
             else if (GetComponent<PlayerMovement>().onBar == true)
             {
                 playerVelocity = playerRB.velocity;
                 playerVelocity.y = barJumpSpeed;
                 playerRB.velocity = playerVelocity;
+                jumpAudio.PlayOneShot(jumpSound);
             }
             else if (GetComponent<PlayerMovement>().isCrouched == true && GetComponent<PlayerMovement>().sliding == false)
             {
-                StartCoroutine("CoSlide");                
+                StartCoroutine("CoSlide");
+                jumpAudio.PlayOneShot(jumpSound);
             }
         }        
     }
