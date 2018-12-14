@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour {
 
@@ -25,6 +26,7 @@ public class PlayerHealth : MonoBehaviour {
 	void Update () { 
 	    if(lives <= 0)
         {
+			SceneManager.LoadScene ("Main_Menu_SW");
             Destroy(player);
         }
 	}

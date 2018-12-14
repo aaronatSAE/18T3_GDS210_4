@@ -9,7 +9,7 @@ public class Killzone : MonoBehaviour {
     {
         if (player.tag == "Player")
         { 
-            SceneManager.LoadScene("GameLevel_SW");
+            SceneManager.LoadScene("Main_Menu_SW");
         }
     }
 }
