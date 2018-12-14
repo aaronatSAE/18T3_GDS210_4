@@ -3036,7 +3036,7 @@ MonoBehaviour:
   playerLocation: {fileID: 0}
   gun: {fileID: 1959620062278014}
   bullet: {fileID: 1416865214474250, guid: 0198027c16e7676409be1b088125a454, type: 2}
-  delayDuration: 3
+  delayDuration: 6
 --- !u!136 &136282329337161960
 CapsuleCollider:
   m_ObjectHideFlags: 1
