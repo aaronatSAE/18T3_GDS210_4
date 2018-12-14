@@ -3022,6 +3022,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyLives: 10
+  explosionParticle: {fileID: 1969214815690916, guid: 48e50103c4b26d0438db725921aa32d5,
+    type: 2}
 --- !u!114 &114964644514972966
 MonoBehaviour:
   m_ObjectHideFlags: 1

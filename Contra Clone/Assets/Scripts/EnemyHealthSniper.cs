@@ -15,6 +15,8 @@ public class EnemyHealthSniper : EnemyHealth {
 	void Update () {
 		if(enemyLives <= 0)
         {
+            Instantiate(explosionParticle, transform.position, transform.rotation);
+     
             Destroy(gameObject);
             oilTanker.invulnerable = false;
         }

@@ -2090,6 +2090,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyLives: 3
+  explosionParticle: {fileID: 1969214815690916, guid: 48e50103c4b26d0438db725921aa32d5,
+    type: 2}
 --- !u!136 &136086956177110756
 CapsuleCollider:
   m_ObjectHideFlags: 1
