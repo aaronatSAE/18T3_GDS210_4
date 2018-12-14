@@ -539,7 +539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4571379286467864}
-  m_Layer: 17
+  m_Layer: 13
   m_Name: Hand Grab Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1355,7 +1355,7 @@ GameObject:
   - component: {fileID: 33406913485030408}
   - component: {fileID: 23618130750498610}
   - component: {fileID: 135768506861339802}
-  m_Layer: 17
+  m_Layer: 13
   m_Name: hand
   m_TagString: PlayerHand
   m_Icon: {fileID: 0}
@@ -2347,9 +2347,9 @@ GameObject:
   - component: {fileID: 23028482716155460}
   - component: {fileID: 65109856854065524}
   - component: {fileID: 114103147578652294}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: foot
-  m_TagString: pBullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3259,8 +3259,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1799759481585274}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -61.341557, y: -1.631, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4356321018115686}
   - {fileID: 4339445048311454}
@@ -6273,9 +6273,9 @@ MonoBehaviour:
   playerRB: {fileID: 54814178502515436}
   machineGun: {fileID: 1610648212149954}
   missile: {fileID: 1382875561912374}
-  groundJumpSpeed: 12
-  barJumpSpeed: 12
-  slideForce: 650
+  groundJumpSpeed: 9
+  barJumpSpeed: 7.5
+  slideForce: 500
   slideAttackTime: 0.5
   slideTotalTime: 0.8
 --- !u!114 &114348966263274978
@@ -6353,7 +6353,7 @@ CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1799759481585274}
-  m_Material: {fileID: 13400000, guid: 80032df9f2e15974883a28a3281c25c4, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5

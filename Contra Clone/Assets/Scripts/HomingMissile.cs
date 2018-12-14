@@ -65,9 +65,7 @@ public class HomingMissile : MonoBehaviour {
             }
 
             //rotating the missile toward the target
-            var targetPos = target.transform.position;
-            targetPos.y += 3;
-            lookAtDirection = targetPos - transform.position;
+            lookAtDirection = target.transform.position - transform.position;
             Quaternion aimAtTarget = Quaternion.LookRotation(lookAtDirection);
             transform.rotation = Quaternion.Lerp(transform.rotation, aimAtTarget, turningSpeed * Time.deltaTime);
 
